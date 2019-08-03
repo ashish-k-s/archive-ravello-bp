@@ -1,0 +1,804 @@
+{
+    "baseBlueprintId": 3125674084671, 
+    "description": "#archive\n#save", 
+    "ownerDetails": {
+        "deleted": false, 
+        "userId": 70189245, 
+        "name": "Ashihs Shah"
+    }, 
+    "published": false, 
+    "creationTime": 1563430551854, 
+    "blueprintName": "cee-sk-135-v1.0", 
+    "usingNewNetwork": true, 
+    "_href": "/cloud.ravellosystems.com/api/v1/applications/3125679106700", 
+    "costBucketId": 49381386, 
+    "version": 0, 
+    "design": {
+        "stopVmsByOrder": false, 
+        "layout": {
+            "vmLayoutItem": [
+                {
+                    "vmId": 3316864519698836, 
+                    "location": {
+                        "y": -84, 
+                        "x": 126
+                    }
+                }, 
+                {
+                    "vmId": 4336738772821789, 
+                    "location": {
+                        "y": 0, 
+                        "x": 77
+                    }
+                }, 
+                {
+                    "vmId": 4475703890869720, 
+                    "location": {
+                        "y": 100, 
+                        "x": 28
+                    }
+                }, 
+                {
+                    "vmId": 3950192692595967, 
+                    "location": {
+                        "y": 100, 
+                        "x": 126
+                    }
+                }, 
+                {
+                    "vmId": 5894753562062726, 
+                    "location": {
+                        "y": -84, 
+                        "x": 28
+                    }
+                }
+            ]
+        }, 
+        "network": {
+            "switches": [
+                {
+                    "networkSegments": [
+                        {
+                            "id": 5446821999124372, 
+                            "vlanId": 1
+                        }
+                    ], 
+                    "id": 1993915473817783, 
+                    "ports": [
+                        {
+                            "index": 0, 
+                            "deviceId": 371088502585836, 
+                            "deviceType": "SERVICES", 
+                            "id": 8003777535252463, 
+                            "networkSegmentReferences": [
+                                {
+                                    "anyNetworkSegment": false, 
+                                    "id": 608035931329583, 
+                                    "networkSegmentId": 5446821999124372, 
+                                    "egressPolicy": "UNTAGGED"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ], 
+            "subnets": [
+                {
+                    "ipVersion": "IPV4", 
+                    "net": "10.0.0.0", 
+                    "mask": "255.255.0.0", 
+                    "id": 7736051803180763, 
+                    "networkSegmentId": 5446821999124372
+                }
+            ], 
+            "services": {
+                "externalGateway": {
+                    "securityRules": [
+                        {
+                            "accessPolicy": "DENY", 
+                            "anySource": true, 
+                            "id": 3120871334550312960
+                        }
+                    ], 
+                    "customRulesEnabled": false
+                }, 
+                "networkInterfaces": [
+                    {
+                        "id": 371088502585836
+                    }
+                ]
+            }
+        }, 
+        "vmOrderGroups": [
+            {
+                "delay": "60", 
+                "order": 1, 
+                "skipStartupSequence": false, 
+                "id": "5443434165655030", 
+                "name": "Stage1"
+            }, 
+            {
+                "delay": "0", 
+                "order": 2, 
+                "skipStartupSequence": false, 
+                "id": "3193835446859836", 
+                "name": "Stage2"
+            }
+        ], 
+        "vms": [
+            {
+                "cpuModel": "core2duo", 
+                "privateCloudImage": false, 
+                "supportsCloudInit": true, 
+                "networkConnections": [
+                    {
+                        "device": {
+                            "index": 0, 
+                            "mac": "2c:c2:60:6b:bd:10", 
+                            "deviceType": "virtio", 
+                            "useAutomaticMac": false
+                        }, 
+                        "ipConfig": {
+                            "staticIpConfig": {
+                                "ip": "10.0.0.10", 
+                                "mask": "255.255.0.0"
+                            }, 
+                            "id": 59729276
+                        }, 
+                        "id": 7049585, 
+                        "name": "nic1"
+                    }
+                ], 
+                "vmOrderGroupId": "5443434165655030", 
+                "applicationId": 3125679106700, 
+                "id": 3316864519698836, 
+                "powerOffOnStopTimeOut": true, 
+                "useCdn": false, 
+                "rcu": 8.0, 
+                "memorySize": {
+                    "unit": "GB", 
+                    "value": 16
+                }, 
+                "platform": "default", 
+                "requiresKeypair": false, 
+                "requiresHvm": false, 
+                "busTopology": {}, 
+                "userData": "#!/bin/bash\ncat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth0\nNAME=\"eth0\"\nHWADDR=\"2c:c2:60:6b:bd:10\"\nONBOOT=yes\nBOOTPROTO=static\nTYPE=Ethernet\nIPADDR=\"10.0.0.10\"\nNETMASK=\"255.255.0.0\"\nEOF\n\ncat << EOF > /root/app_data\nAPPNAME=\"cee-sk-135-v1.0-ARCHIVE\"\nVMNAME=\"director\"\nEOF\n", 
+                "legacyMode": false, 
+                "description": "This is an empty image with no operating system installed. To install an OS, please upload a bootable CD-ROM or DVD image.\n\nIMPORTANT NOTE: the hardware settings of this VM are configured to support as wide as possible range of operating systems. As such, it is using emulated network and disk devices. For best performance it is recommended to replace the network and disk devices with paravirtualized devices as supported by the guest OS (for example VirtIO).", 
+                "loadingStatus": "DONE", 
+                "hostnames": [
+                    "director.example.com"
+                ], 
+                "loadingPercentage": 100, 
+                "hardDrives": [
+                    {
+                        "index": 0, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "vol1", 
+                        "controllerId": 979425044506043520, 
+                        "boot": true, 
+                        "baseDiskImageName": "rhel-server-7.4-x86_64-kvm.qcow2", 
+                        "controller": "virtio", 
+                        "baseDiskImageId": 94797836, 
+                        "loadingPercentage": 100, 
+                        "controllerIndex": 0, 
+                        "loadingStatus": "DONE", 
+                        "type": "DISK", 
+                        "id": 6528752654967009, 
+                        "size": {
+                            "unit": "GB", 
+                            "value": 60
+                        }
+                    }, 
+                    {
+                        "loadingStatus": "DONE", 
+                        "controller": "ide", 
+                        "baseDiskImageId": 3123531612200, 
+                        "loadingPercentage": 100, 
+                        "baseDiskImageName": "archive-client.iso", 
+                        "id": 9520407, 
+                        "size": {
+                            "value": 602424, 
+                            "unit": "KB"
+                        }, 
+                        "index": 1, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "archive-client", 
+                        "controllerId": 62955734, 
+                        "boot": true, 
+                        "controllerIndex": 1, 
+                        "type": "CDROM"
+                    }
+                ], 
+                "numCpus": 8, 
+                "name": "director", 
+                "allowNested": false, 
+                "creationTime": 1563430551859, 
+                "usingNewNetwork": true, 
+                "baseVmId": 43354065, 
+                "bootOrder": [
+                    "CDROM", 
+                    "DISK"
+                ], 
+                "bootType": "BIOS", 
+                "os": "linux_manuel", 
+                "preferPhysicalHost": true
+            }, 
+            {
+                "cpuModel": "core2duo", 
+                "privateCloudImage": false, 
+                "supportsCloudInit": true, 
+                "networkConnections": [
+                    {
+                        "device": {
+                            "index": 0, 
+                            "mac": "2c:c2:60:6b:bd:11", 
+                            "deviceType": "virtio", 
+                            "useAutomaticMac": false
+                        }, 
+                        "ipConfig": {
+                            "staticIpConfig": {
+                                "ip": "10.0.0.11", 
+                                "mask": "255.255.0.0"
+                            }, 
+                            "id": 43490658
+                        }, 
+                        "id": 95796262, 
+                        "name": "nic1"
+                    }
+                ], 
+                "vmOrderGroupId": "3193835446859836", 
+                "applicationId": 3125679106700, 
+                "id": 4475703890869720, 
+                "powerOffOnStopTimeOut": true, 
+                "useCdn": false, 
+                "rcu": 4.0, 
+                "memorySize": {
+                    "unit": "GB", 
+                    "value": 8
+                }, 
+                "platform": "default", 
+                "requiresKeypair": false, 
+                "requiresHvm": false, 
+                "busTopology": {}, 
+                "userData": "#!/bin/bash\ncat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth0\nNAME=\"eth0\"\nHWADDR=\"2c:c2:60:6b:bd:11\"\nONBOOT=yes\nBOOTPROTO=static\nTYPE=Ethernet\nIPADDR=\"10.0.0.11\"\nNETMASK=\"255.255.0.0\"\nEOF\n\ncat << EOF > /root/app_data\nAPPNAME=\"cee-sk-135-v1.0-ARCHIVE\"\nVMNAME=\"compute0\"\nEOF\n", 
+                "legacyMode": false, 
+                "description": "This is an empty image with no operating system installed. To install an OS, please upload a bootable CD-ROM or DVD image.\n\nIMPORTANT NOTE: the hardware settings of this VM are configured to support as wide as possible range of operating systems. As such, it is using emulated network and disk devices. For best performance it is recommended to replace the network and disk devices with paravirtualized devices as supported by the guest OS (for example VirtIO).", 
+                "loadingStatus": "DONE", 
+                "hostnames": [
+                    "compute0.example.com"
+                ], 
+                "loadingPercentage": 100, 
+                "hardDrives": [
+                    {
+                        "index": 1, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "vol1", 
+                        "controllerId": 6794838832900185088, 
+                        "boot": false, 
+                        "baseDiskImageName": "ipxe.iso", 
+                        "controller": "ide", 
+                        "baseDiskImageId": 62652550, 
+                        "loadingPercentage": 100, 
+                        "controllerIndex": 1, 
+                        "loadingStatus": "DONE", 
+                        "type": "CDROM", 
+                        "id": 3210965675949375, 
+                        "size": {
+                            "unit": "KB", 
+                            "value": 672
+                        }
+                    }, 
+                    {
+                        "index": 0, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "vol", 
+                        "controllerId": 2375937592871021568, 
+                        "boot": true, 
+                        "baseDiskImageName": "blank50.qcow2", 
+                        "controller": "virtio", 
+                        "baseDiskImageId": 76152860, 
+                        "loadingPercentage": 100, 
+                        "controllerIndex": 2, 
+                        "loadingStatus": "DONE", 
+                        "type": "DISK", 
+                        "id": 5761414477502672, 
+                        "size": {
+                            "unit": "GB", 
+                            "value": 50
+                        }
+                    }, 
+                    {
+                        "loadingStatus": "DONE", 
+                        "controller": "ide", 
+                        "baseDiskImageId": 3123531612200, 
+                        "loadingPercentage": 100, 
+                        "baseDiskImageName": "archive-client.iso", 
+                        "id": 86765926, 
+                        "size": {
+                            "value": 602424, 
+                            "unit": "KB"
+                        }, 
+                        "index": 2, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "archive-client", 
+                        "controllerId": 6794838832900185088, 
+                        "boot": true, 
+                        "controllerIndex": 1, 
+                        "type": "CDROM"
+                    }
+                ], 
+                "numCpus": 4, 
+                "name": "compute0", 
+                "allowNested": true, 
+                "creationTime": 1563430551854, 
+                "usingNewNetwork": true, 
+                "baseVmId": 43354065, 
+                "bootOrder": [
+                    "CDROM", 
+                    "DISK"
+                ], 
+                "bootType": "BIOS", 
+                "os": "linux_manuel", 
+                "preferPhysicalHost": true
+            }, 
+            {
+                "cpuModel": "core2duo", 
+                "privateCloudImage": false, 
+                "supportsCloudInit": true, 
+                "networkConnections": [
+                    {
+                        "device": {
+                            "index": 0, 
+                            "mac": "2c:c2:60:6b:bd:12", 
+                            "deviceType": "virtio", 
+                            "useAutomaticMac": false
+                        }, 
+                        "ipConfig": {
+                            "staticIpConfig": {
+                                "ip": "10.0.0.12", 
+                                "mask": "255.255.0.0"
+                            }, 
+                            "id": 45515352
+                        }, 
+                        "id": 9597492, 
+                        "name": "nic1"
+                    }
+                ], 
+                "vmOrderGroupId": "3193835446859836", 
+                "applicationId": 3125679106700, 
+                "id": 3950192692595967, 
+                "powerOffOnStopTimeOut": true, 
+                "useCdn": false, 
+                "rcu": 4.0, 
+                "memorySize": {
+                    "unit": "GB", 
+                    "value": 8
+                }, 
+                "platform": "default", 
+                "requiresKeypair": false, 
+                "requiresHvm": false, 
+                "busTopology": {}, 
+                "userData": "#!/bin/bash\ncat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth0\nNAME=\"eth0\"\nHWADDR=\"2c:c2:60:6b:bd:12\"\nONBOOT=yes\nBOOTPROTO=static\nTYPE=Ethernet\nIPADDR=\"10.0.0.12\"\nNETMASK=\"255.255.0.0\"\nEOF\n\ncat << EOF > /root/app_data\nAPPNAME=\"cee-sk-135-v1.0-ARCHIVE\"\nVMNAME=\"compute1\"\nEOF\n", 
+                "legacyMode": false, 
+                "description": "This is an empty image with no operating system installed. To install an OS, please upload a bootable CD-ROM or DVD image.\n\nIMPORTANT NOTE: the hardware settings of this VM are configured to support as wide as possible range of operating systems. As such, it is using emulated network and disk devices. For best performance it is recommended to replace the network and disk devices with paravirtualized devices as supported by the guest OS (for example VirtIO).", 
+                "loadingStatus": "DONE", 
+                "hostnames": [
+                    "compute1.example.com"
+                ], 
+                "loadingPercentage": 100, 
+                "hardDrives": [
+                    {
+                        "index": 1, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "vol1", 
+                        "controllerId": 4961261536530242560, 
+                        "boot": false, 
+                        "baseDiskImageName": "ipxe.iso", 
+                        "controller": "ide", 
+                        "baseDiskImageId": 62652550, 
+                        "loadingPercentage": 100, 
+                        "controllerIndex": 0, 
+                        "loadingStatus": "DONE", 
+                        "type": "CDROM", 
+                        "id": 2812882153749334, 
+                        "size": {
+                            "unit": "KB", 
+                            "value": 672
+                        }
+                    }, 
+                    {
+                        "index": 0, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "vol", 
+                        "controllerId": 442059733967157376, 
+                        "boot": true, 
+                        "baseDiskImageName": "blank50.qcow2", 
+                        "controller": "virtio", 
+                        "baseDiskImageId": 76152860, 
+                        "loadingPercentage": 100, 
+                        "controllerIndex": 1, 
+                        "loadingStatus": "DONE", 
+                        "type": "DISK", 
+                        "id": 47477329667477, 
+                        "size": {
+                            "unit": "GB", 
+                            "value": 50
+                        }
+                    }, 
+                    {
+                        "loadingStatus": "DONE", 
+                        "controller": "ide", 
+                        "baseDiskImageId": 3123531612200, 
+                        "loadingPercentage": 100, 
+                        "baseDiskImageName": "archive-client.iso", 
+                        "id": 36516760, 
+                        "size": {
+                            "value": 602424, 
+                            "unit": "KB"
+                        }, 
+                        "index": 2, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "archive-client", 
+                        "controllerId": 4961261536530242560, 
+                        "boot": true, 
+                        "controllerIndex": 0, 
+                        "type": "CDROM"
+                    }
+                ], 
+                "numCpus": 4, 
+                "name": "compute1", 
+                "allowNested": true, 
+                "creationTime": 1563430551856, 
+                "usingNewNetwork": true, 
+                "baseVmId": 43354065, 
+                "bootOrder": [
+                    "CDROM", 
+                    "DISK"
+                ], 
+                "bootType": "BIOS", 
+                "os": "linux_manuel", 
+                "preferPhysicalHost": true
+            }, 
+            {
+                "privateCloudImage": false, 
+                "supportsCloudInit": true, 
+                "networkConnections": [
+                    {
+                        "device": {
+                            "index": 0, 
+                            "mac": "2c:c2:60:6b:bd:13", 
+                            "deviceType": "virtio", 
+                            "useAutomaticMac": false
+                        }, 
+                        "ipConfig": {
+                            "staticIpConfig": {
+                                "ip": "10.0.0.13", 
+                                "mask": "255.255.0.0"
+                            }, 
+                            "id": 90537643
+                        }, 
+                        "id": 26518936, 
+                        "name": "nic1"
+                    }
+                ], 
+                "vmOrderGroupId": "5443434165655030", 
+                "applicationId": 3125679106700, 
+                "id": 5894753562062726, 
+                "configNetworkUsingCloudInit": false, 
+                "powerOffOnStopTimeOut": true, 
+                "useCdn": false, 
+                "rcu": 1.0, 
+                "memorySize": {
+                    "unit": "GB", 
+                    "value": 1
+                }, 
+                "platform": "default", 
+                "hardDrives": [
+                    {
+                        "index": 0, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "vol", 
+                        "controllerId": 9130698410740914176, 
+                        "boot": true, 
+                        "baseDiskImageName": "rhel7-base.qcow2", 
+                        "controller": "virtio", 
+                        "baseDiskImageId": 58392652, 
+                        "loadingPercentage": 100, 
+                        "controllerIndex": 0, 
+                        "loadingStatus": "DONE", 
+                        "type": "DISK", 
+                        "id": 3928369505255302, 
+                        "size": {
+                            "unit": "GB", 
+                            "value": 10
+                        }
+                    }, 
+                    {
+                        "loadingStatus": "DONE", 
+                        "controller": "ide", 
+                        "baseDiskImageId": 3123531612200, 
+                        "loadingPercentage": 100, 
+                        "baseDiskImageName": "archive-client.iso", 
+                        "id": 70850467, 
+                        "size": {
+                            "value": 602424, 
+                            "unit": "KB"
+                        }, 
+                        "index": 1, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "archive-client", 
+                        "controllerId": 39972626, 
+                        "boot": true, 
+                        "controllerIndex": 1, 
+                        "type": "CDROM"
+                    }
+                ], 
+                "requiresHvm": false, 
+                "busTopology": {}, 
+                "userData": "#!/bin/bash\ncat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth0\nNAME=\"eth0\"\nHWADDR=\"2c:c2:60:6b:bd:13\"\nONBOOT=yes\nBOOTPROTO=static\nTYPE=Ethernet\nIPADDR=\"10.0.0.13\"\nNETMASK=\"255.255.0.0\"\nEOF\n\ncat << EOF > /root/app_data\nAPPNAME=\"cee-sk-135-v1.0-ARCHIVE\"\nVMNAME=\"Openstack-IPMI-v1\"\nEOF\n", 
+                "legacyMode": false, 
+                "configurationManagement": {
+                    "userData": "#!/bin/sh\ncat << EOF > /etc/ravellobmc/vms\n# VMs that the fake ipmi will manage\n# include in the list one VM per line along with the proxy IP the IPMI client (ipmitool) will use to manage it\n# Example:: VM_NAME,IP_ADDRESS\n# storage1,10.100.0.11\n# storage2,10.100.0.12\ncontrol0,10.0.0.10\ncompute0,10.0.0.20\ncompute1,10.0.0.21\nEOF\n\ncat << CONF > /etc/ravellobmc/ravellobmc.conf\n# ravellobmc command-line arguments\nASPECT=\"deployment\"\nAPI_USERNAME=\"gss-training-dev+ipmi@redhat.com\"\nCONF", 
+                    "configNetworkUsingCloudInit": false
+                }, 
+                "requiresKeypair": false, 
+                "loadingStatus": "DONE", 
+                "hostnames": [
+                    "ipmi.example.com"
+                ], 
+                "loadingPercentage": 100, 
+                "numCpus": 1, 
+                "name": "Openstack-IPMI-v1", 
+                "allowNested": false, 
+                "creationTime": 1563430551861, 
+                "usingNewNetwork": true, 
+                "baseVmId": 96217452, 
+                "bootOrder": [
+                    "CDROM", 
+                    "DISK"
+                ], 
+                "bootType": "BIOS", 
+                "os": "linux_manuel"
+            }, 
+            {
+                "cpuModel": "core2duo", 
+                "privateCloudImage": false, 
+                "supportsCloudInit": true, 
+                "networkConnections": [
+                    {
+                        "device": {
+                            "index": 0, 
+                            "mac": "2c:c2:60:6b:bd:14", 
+                            "deviceType": "virtio", 
+                            "useAutomaticMac": false
+                        }, 
+                        "ipConfig": {
+                            "staticIpConfig": {
+                                "ip": "10.0.0.14", 
+                                "mask": "255.255.0.0"
+                            }, 
+                            "id": 25967726
+                        }, 
+                        "id": 82706949, 
+                        "name": "nic1"
+                    }
+                ], 
+                "vmOrderGroupId": "3193835446859836", 
+                "applicationId": 3125679106700, 
+                "id": 4336738772821789, 
+                "powerOffOnStopTimeOut": true, 
+                "useCdn": false, 
+                "rcu": 8.0, 
+                "memorySize": {
+                    "unit": "GB", 
+                    "value": 32
+                }, 
+                "platform": "default", 
+                "requiresKeypair": false, 
+                "requiresHvm": false, 
+                "busTopology": {}, 
+                "userData": "#!/bin/bash\ncat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth0\nNAME=\"eth0\"\nHWADDR=\"2c:c2:60:6b:bd:14\"\nONBOOT=yes\nBOOTPROTO=static\nTYPE=Ethernet\nIPADDR=\"10.0.0.14\"\nNETMASK=\"255.255.0.0\"\nEOF\n\ncat << EOF > /root/app_data\nAPPNAME=\"cee-sk-135-v1.0-ARCHIVE\"\nVMNAME=\"control0\"\nEOF\n", 
+                "legacyMode": false, 
+                "description": "This is an empty image with no operating system installed. To install an OS, please upload a bootable CD-ROM or DVD image.\n\nIMPORTANT NOTE: the hardware settings of this VM are configured to support as wide as possible range of operating systems. As such, it is using emulated network and disk devices. For best performance it is recommended to replace the network and disk devices with paravirtualized devices as supported by the guest OS (for example VirtIO).", 
+                "loadingStatus": "DONE", 
+                "hostnames": [
+                    "control0.example.com"
+                ], 
+                "loadingPercentage": 100, 
+                "hardDrives": [
+                    {
+                        "index": 1, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "vol1", 
+                        "controllerId": 3227689700120117248, 
+                        "boot": false, 
+                        "baseDiskImageName": "ipxe.iso", 
+                        "controller": "ide", 
+                        "baseDiskImageId": 62652550, 
+                        "loadingPercentage": 100, 
+                        "controllerIndex": 1, 
+                        "loadingStatus": "DONE", 
+                        "type": "CDROM", 
+                        "id": 7779591596324321, 
+                        "size": {
+                            "unit": "KB", 
+                            "value": 672
+                        }
+                    }, 
+                    {
+                        "index": 0, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "vol", 
+                        "controllerId": 1832373583678047232, 
+                        "boot": true, 
+                        "baseDiskImageName": "blank50.qcow2", 
+                        "controller": "virtio", 
+                        "baseDiskImageId": 76152860, 
+                        "loadingPercentage": 100, 
+                        "controllerIndex": 2, 
+                        "loadingStatus": "DONE", 
+                        "type": "DISK", 
+                        "id": 4189584528819075, 
+                        "size": {
+                            "unit": "GB", 
+                            "value": 50
+                        }
+                    }, 
+                    {
+                        "loadingStatus": "DONE", 
+                        "controller": "ide", 
+                        "baseDiskImageId": 3123531612200, 
+                        "loadingPercentage": 100, 
+                        "baseDiskImageName": "archive-client.iso", 
+                        "id": 51390380, 
+                        "size": {
+                            "value": 602424, 
+                            "unit": "KB"
+                        }, 
+                        "index": 2, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "archive-client", 
+                        "controllerId": 3227689700120117248, 
+                        "boot": true, 
+                        "controllerIndex": 1, 
+                        "type": "CDROM"
+                    }
+                ], 
+                "numCpus": 8, 
+                "name": "control0", 
+                "allowNested": false, 
+                "creationTime": 1563430551858, 
+                "usingNewNetwork": true, 
+                "baseVmId": 43354065, 
+                "bootOrder": [
+                    "CDROM", 
+                    "DISK"
+                ], 
+                "bootType": "BIOS", 
+                "os": "linux_manuel", 
+                "preferPhysicalHost": true
+            }, 
+            {
+                "privateCloudImage": false, 
+                "supportsCloudInit": false, 
+                "networkConnections": [
+                    {
+                        "device": {
+                            "index": 0, 
+                            "useAutomaticMac": false, 
+                            "generatedMac": "2c:c2:60:66:a2:75", 
+                            "mac": "2c:c2:60:72:82:05", 
+                            "pciSlot": 1, 
+                            "deviceType": "virtio"
+                        }, 
+                        "ipConfig": {
+                            "needElasticIp": false, 
+                            "hasPublicIp": false, 
+                            "fqdn": "archiveserver.srv.ravcloud.com", 
+                            "externalAccessState": "ALWAYS_PORT_FORWARDING", 
+                            "staticIpConfig": {
+                                "ip": "10.0.0.5", 
+                                "mask": "255.255.0.0"
+                            }, 
+                            "id": 3793603119677957
+                        }, 
+                        "id": 3141450133137399, 
+                        "name": "eth0"
+                    }
+                ], 
+                "applicationId": 3125679066192, 
+                "id": 7695743400963114, 
+                "powerOffOnStopTimeOut": true, 
+                "useCdn": false, 
+                "rcu": 4.0, 
+                "suppliedServices": [
+                    {
+                        "useLuidForIpConfig": true, 
+                        "protocol": "TCP", 
+                        "name": "ssh", 
+                        "portRange": "22", 
+                        "ip": "10.0.0.5", 
+                        "ipConfigLuid": 3793603119677957, 
+                        "id": 2486368537820634, 
+                        "external": true
+                    }
+                ], 
+                "memorySize": {
+                    "value": 8, 
+                    "unit": "GB"
+                }, 
+                "platform": "default", 
+                "requiresKeypair": false, 
+                "requiresHvm": false, 
+                "busTopology": {}, 
+                "legacyMode": false, 
+                "externalFqdn": "archiveserver-epcoviet.srv.ravcloud.com", 
+                "hardDrives": [
+                    {
+                        "loadingStatus": "DONE", 
+                        "controller": "virtio", 
+                        "controllerIndex": 0, 
+                        "loadingPercentage": 100, 
+                        "controllerPciSlot": 1, 
+                        "size": {
+                            "value": 9, 
+                            "unit": "GB"
+                        }, 
+                        "index": 0, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "vol", 
+                        "controllerId": 1636321956224519168, 
+                        "boot": true, 
+                        "id": 4463123901840118, 
+                        "type": "DISK"
+                    }, 
+                    {
+                        "loadingStatus": "DONE", 
+                        "controller": "virtio", 
+                        "controllerIndex": 0, 
+                        "loadingPercentage": 100, 
+                        "id": 2549959233952428, 
+                        "size": {
+                            "value": 220, 
+                            "unit": "GB"
+                        }, 
+                        "index": 1, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "Archive-Data-Disk", 
+                        "controllerId": 1636321956224519168, 
+                        "boot": false, 
+                        "type": "DISK"
+                    }
+                ], 
+                "loadingStatus": "PENDING", 
+                "loadingPercentage": 0, 
+                "firstTimePublished": "1562748456065", 
+                "numCpus": 4, 
+                "name": "archive-server", 
+                "allowNested": false, 
+                "creationTime": 1562748456065, 
+                "usingNewNetwork": true, 
+                "baseVmId": 3242723893805, 
+                "bootOrder": [
+                    "CDROM", 
+                    "DISK"
+                ], 
+                "bootType": "BIOS", 
+                "os": "default", 
+                "monitorState": "OK"
+            }
+        ]
+    }, 
+    "costBucket": {
+        "deleted": false, 
+        "creationTime": 1456038573119, 
+        "id": 49381386, 
+        "name": "Organization"
+    }, 
+    "owner": "Ashihs Shah", 
+    "designDiffersFromDeployment": false, 
+    "id": 3125679106700, 
+    "name": "cee-sk-135-v1.0-ARCHIVE"
+}

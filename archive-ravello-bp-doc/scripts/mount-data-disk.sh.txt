@@ -1,0 +1,40 @@
+#!/bin/bash
+# Bug report to: ashishks@redhat.com
+
+DEVICEFILE="/dev/vdb"
+DATADIR="/data"
+LOGFILE="/etc/motd"
+date >> $LOGFILE
+if [ -b $DEVICEFILE ]
+then
+	echo -e "Device $DEVICEFILE exists" >> $LOGFILE
+	mount $DEVICEFILE $DATADIR
+	if [ $? -eq 0 ]
+	then 
+		echo -e "Device $DEVICEFILE is mounted on $DATADIR" >> $LOGFILE
+		exit 0
+	else
+		echo -e "Formatting device $DEVICEFILE" >> $LOGFILE
+		mkfs.xfs $DEVICEFILE
+		if [ $? -eq 0 ]
+		then
+			mount $DEVICEFILE $DATADIR
+			if [ $? -eq 0 ]
+			then
+				echo -e "Device $DEVICEFILE is mounted on $DATADIR" >> $LOGFILE
+				exit 0
+			else
+				echo -e "Mounting of $DEVICEFILE on $DATADIR failed, exiting.." >> $LOGFILE
+				exit 1
+			fi
+		else
+			echo -e "Formatting of $DEVICEFILE failed, exiting.." >> $LOGFILE
+			exit 1
+		fi
+	fi
+else
+	echo -e "Device file $DEVICEFILE does not exist, exiting.." >> $LOGFILE
+	exit 1
+fi
+
+

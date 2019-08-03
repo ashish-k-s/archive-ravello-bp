@@ -1,0 +1,18 @@
+# Bug report to: ashishks@redhat.com
+
+[Unit]
+#After=network.service
+After=default.target
+
+[Service]
+#Type=simple
+Type=forking
+User=root
+Group=root
+ExecStart=/usr/local/bin/startup.sh
+TimeoutSec=0
+
+[Install]
+#WantedBy=multi-user.target
+WantedBy=default.target
+

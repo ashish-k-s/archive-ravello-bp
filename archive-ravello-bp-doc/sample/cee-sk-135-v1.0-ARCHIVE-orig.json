@@ -1,0 +1,1114 @@
+{
+    "baseBlueprintId": 3125674084671, 
+    "description": "#archive\n#save", 
+    "ownerDetails": {
+        "deleted": false, 
+        "userId": 70189245, 
+        "name": "Ashihs Shah"
+    }, 
+    "published": false, 
+    "creationTime": 1563430551854, 
+    "blueprintName": "cee-sk-135-v1.0", 
+    "usingNewNetwork": true, 
+    "_href": "/cloud.ravellosystems.com/api/v1/applications/3125679106700", 
+    "costBucketId": 49381386, 
+    "version": 0, 
+    "design": {
+        "vmOrderGroups": [
+            {
+                "delay": "60", 
+                "order": 1, 
+                "skipStartupSequence": false, 
+                "id": "5443434165655030", 
+                "name": "Stage1"
+            }, 
+            {
+                "delay": "0", 
+                "order": 2, 
+                "skipStartupSequence": false, 
+                "id": "3193835446859836", 
+                "name": "Stage2"
+            }
+        ], 
+        "stopVmsByOrder": false, 
+        "layout": {
+            "vmLayoutItem": [
+                {
+                    "vmId": 3316864519698836, 
+                    "location": {
+                        "y": -84, 
+                        "x": 126
+                    }
+                }, 
+                {
+                    "vmId": 4336738772821789, 
+                    "location": {
+                        "y": 0, 
+                        "x": 77
+                    }
+                }, 
+                {
+                    "vmId": 4475703890869720, 
+                    "location": {
+                        "y": 100, 
+                        "x": 28
+                    }
+                }, 
+                {
+                    "vmId": 3950192692595967, 
+                    "location": {
+                        "y": 100, 
+                        "x": 126
+                    }
+                }, 
+                {
+                    "vmId": 5894753562062726, 
+                    "location": {
+                        "y": -84, 
+                        "x": 28
+                    }
+                }
+            ]
+        }, 
+        "vms": [
+            {
+                "cpuModel": "core2duo", 
+                "privateCloudImage": false, 
+                "supportsCloudInit": false, 
+                "networkConnections": [
+                    {
+                        "device": {
+                            "generatedMac": "2c:c2:60:24:0e:20", 
+                            "index": 0, 
+                            "mac": "2c:c2:60:24:0e:20", 
+                            "deviceType": "virtio", 
+                            "useAutomaticMac": false
+                        }, 
+                        "ipConfig": {
+                            "needElasticIp": false, 
+                            "hasPublicIp": false, 
+                            "fqdn": "director-ceesk135v10archive-rccofqbb.srv.ravcloud.com", 
+                            "externalAccessState": "ALWAYS_PORT_FORWARDING", 
+                            "staticIpConfig": {
+                                "ip": "10.0.0.1", 
+                                "mask": "255.255.0.0", 
+                                "gateway": "10.0.0.254", 
+                                "dns": "10.0.0.254"
+                            }, 
+                            "id": 4242647626740922
+                        }, 
+                        "id": 2663544648622653, 
+                        "name": "eth0"
+                    }, 
+                    {
+                        "device": {
+                            "generatedMac": "2c:c2:60:31:b5:87", 
+                            "index": 1, 
+                            "mac": "2c:c2:60:31:b5:87", 
+                            "deviceType": "virtio", 
+                            "useAutomaticMac": false
+                        }, 
+                        "ipConfig": {
+                            "needElasticIp": false, 
+                            "hasPublicIp": false, 
+                            "fqdn": "director-ceesk135v10archive-5ke6naeo.srv.ravcloud.com", 
+                            "externalAccessState": "ALWAYS_PORT_FORWARDING", 
+                            "staticIpConfig": {
+                                "ip": "172.25.250.1", 
+                                "mask": "255.255.255.0"
+                            }, 
+                            "id": 8553721979631767
+                        }, 
+                        "id": 6555154177521503, 
+                        "name": "eth1"
+                    }
+                ], 
+                "vmOrderGroupId": "5443434165655030", 
+                "applicationId": 3125679106700, 
+                "id": 3316864519698836, 
+                "powerOffOnStopTimeOut": true, 
+                "useCdn": false, 
+                "rcu": 8.0, 
+                "suppliedServices": [
+                    {
+                        "useLuidForIpConfig": true, 
+                        "protocol": "TCP", 
+                        "name": "ssh", 
+                        "ip": "10.0.0.1", 
+                        "ipConfigLuid": 4242647626740922, 
+                        "external": true, 
+                        "portRange": "22", 
+                        "id": 1732877888570722
+                    }
+                ], 
+                "memorySize": {
+                    "unit": "GB", 
+                    "value": 16
+                }, 
+                "platform": "default", 
+                "requiresKeypair": false, 
+                "requiresHvm": false, 
+                "busTopology": {}, 
+                "legacyMode": false, 
+                "description": "This is an empty image with no operating system installed. To install an OS, please upload a bootable CD-ROM or DVD image.\n\nIMPORTANT NOTE: the hardware settings of this VM are configured to support as wide as possible range of operating systems. As such, it is using emulated network and disk devices. For best performance it is recommended to replace the network and disk devices with paravirtualized devices as supported by the guest OS (for example VirtIO).", 
+                "loadingStatus": "DONE", 
+                "hostnames": [
+                    "director.example.com"
+                ], 
+                "loadingPercentage": 100, 
+                "hardDrives": [
+                    {
+                        "index": 0, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "vol1", 
+                        "controllerId": 979425044506043520, 
+                        "boot": true, 
+                        "baseDiskImageName": "rhel-server-7.4-x86_64-kvm.qcow2", 
+                        "controller": "virtio", 
+                        "baseDiskImageId": 94797836, 
+                        "loadingPercentage": 100, 
+                        "controllerIndex": 0, 
+                        "loadingStatus": "DONE", 
+                        "type": "DISK", 
+                        "id": 6528752654967009, 
+                        "size": {
+                            "unit": "GB", 
+                            "value": 60
+                        }
+                    }
+                ], 
+                "numCpus": 8, 
+                "name": "director", 
+                "allowNested": false, 
+                "creationTime": 1563430551859, 
+                "usingNewNetwork": true, 
+                "baseVmId": 43354065, 
+                "bootOrder": [
+                    "CDROM", 
+                    "DISK"
+                ], 
+                "bootType": "BIOS", 
+                "os": "linux_manuel", 
+                "preferPhysicalHost": true
+            }, 
+            {
+                "cpuModel": "core2duo", 
+                "privateCloudImage": false, 
+                "supportsCloudInit": false, 
+                "networkConnections": [
+                    {
+                        "device": {
+                            "index": 0, 
+                            "useAutomaticMac": false, 
+                            "generatedMac": "2c:c2:60:75:3d:91", 
+                            "mac": "2c:c2:60:75:3d:91", 
+                            "pciSlot": 0, 
+                            "deviceType": "virtio"
+                        }, 
+                        "ipConfig": {
+                            "needElasticIp": false, 
+                            "hasPublicIp": false, 
+                            "fqdn": "compute0-ceesk135v10archive-wvisf16e.srv.ravcloud.com", 
+                            "externalAccessState": "ALWAYS_PORT_FORWARDING", 
+                            "staticIpConfig": {
+                                "ip": "172.25.250.13", 
+                                "mask": "255.255.255.0", 
+                                "gateway": "172.25.250.254", 
+                                "dns": "172.25.250.254"
+                            }, 
+                            "id": 3183184438393517
+                        }, 
+                        "id": 2386085610855735, 
+                        "name": "eth0"
+                    }
+                ], 
+                "vmOrderGroupId": "3193835446859836", 
+                "applicationId": 3125679106700, 
+                "id": 4475703890869720, 
+                "powerOffOnStopTimeOut": true, 
+                "useCdn": false, 
+                "rcu": 4.0, 
+                "memorySize": {
+                    "unit": "GB", 
+                    "value": 8
+                }, 
+                "platform": "default", 
+                "requiresKeypair": false, 
+                "requiresHvm": false, 
+                "busTopology": {}, 
+                "legacyMode": false, 
+                "description": "This is an empty image with no operating system installed. To install an OS, please upload a bootable CD-ROM or DVD image.\n\nIMPORTANT NOTE: the hardware settings of this VM are configured to support as wide as possible range of operating systems. As such, it is using emulated network and disk devices. For best performance it is recommended to replace the network and disk devices with paravirtualized devices as supported by the guest OS (for example VirtIO).", 
+                "loadingStatus": "DONE", 
+                "hostnames": [
+                    "compute0.example.com"
+                ], 
+                "loadingPercentage": 100, 
+                "hardDrives": [
+                    {
+                        "index": 1, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "vol1", 
+                        "controllerId": 6794838832900185088, 
+                        "boot": true, 
+                        "baseDiskImageName": "ipxe.iso", 
+                        "controller": "ide", 
+                        "baseDiskImageId": 62652550, 
+                        "loadingPercentage": 100, 
+                        "controllerIndex": 1, 
+                        "loadingStatus": "DONE", 
+                        "type": "CDROM", 
+                        "id": 3210965675949375, 
+                        "size": {
+                            "unit": "KB", 
+                            "value": 672
+                        }
+                    }, 
+                    {
+                        "index": 0, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "vol", 
+                        "controllerId": 2375937592871021568, 
+                        "boot": true, 
+                        "baseDiskImageName": "blank50.qcow2", 
+                        "controller": "virtio", 
+                        "baseDiskImageId": 76152860, 
+                        "loadingPercentage": 100, 
+                        "controllerIndex": 2, 
+                        "loadingStatus": "DONE", 
+                        "type": "DISK", 
+                        "id": 5761414477502672, 
+                        "size": {
+                            "unit": "GB", 
+                            "value": 50
+                        }
+                    }
+                ], 
+                "numCpus": 4, 
+                "name": "compute0", 
+                "allowNested": true, 
+                "creationTime": 1563430551854, 
+                "usingNewNetwork": true, 
+                "baseVmId": 43354065, 
+                "bootOrder": [
+                    "CDROM", 
+                    "DISK"
+                ], 
+                "bootType": "BIOS", 
+                "os": "linux_manuel", 
+                "preferPhysicalHost": true
+            }, 
+            {
+                "cpuModel": "core2duo", 
+                "privateCloudImage": false, 
+                "supportsCloudInit": false, 
+                "networkConnections": [
+                    {
+                        "device": {
+                            "index": 0, 
+                            "useAutomaticMac": false, 
+                            "generatedMac": "2c:c2:60:63:25:56", 
+                            "mac": "2c:c2:60:63:25:56", 
+                            "pciSlot": 0, 
+                            "deviceType": "virtio"
+                        }, 
+                        "ipConfig": {
+                            "needElasticIp": false, 
+                            "hasPublicIp": false, 
+                            "fqdn": "compute1-ceesk135v10archive-r9nxegym.srv.ravcloud.com", 
+                            "externalAccessState": "ALWAYS_PORT_FORWARDING", 
+                            "staticIpConfig": {
+                                "ip": "172.25.250.18", 
+                                "mask": "255.255.255.0", 
+                                "gateway": "172.25.250.254", 
+                                "dns": "172.25.250.254"
+                            }, 
+                            "id": 7001186422965238
+                        }, 
+                        "id": 4468413594315298, 
+                        "name": "eth0"
+                    }
+                ], 
+                "vmOrderGroupId": "3193835446859836", 
+                "applicationId": 3125679106700, 
+                "id": 3950192692595967, 
+                "powerOffOnStopTimeOut": true, 
+                "useCdn": false, 
+                "rcu": 4.0, 
+                "memorySize": {
+                    "unit": "GB", 
+                    "value": 8
+                }, 
+                "platform": "default", 
+                "requiresKeypair": false, 
+                "requiresHvm": false, 
+                "busTopology": {}, 
+                "legacyMode": false, 
+                "description": "This is an empty image with no operating system installed. To install an OS, please upload a bootable CD-ROM or DVD image.\n\nIMPORTANT NOTE: the hardware settings of this VM are configured to support as wide as possible range of operating systems. As such, it is using emulated network and disk devices. For best performance it is recommended to replace the network and disk devices with paravirtualized devices as supported by the guest OS (for example VirtIO).", 
+                "loadingStatus": "DONE", 
+                "hostnames": [
+                    "compute1.example.com"
+                ], 
+                "loadingPercentage": 100, 
+                "hardDrives": [
+                    {
+                        "index": 1, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "vol1", 
+                        "controllerId": 4961261536530242560, 
+                        "boot": true, 
+                        "baseDiskImageName": "ipxe.iso", 
+                        "controller": "ide", 
+                        "baseDiskImageId": 62652550, 
+                        "loadingPercentage": 100, 
+                        "controllerIndex": 0, 
+                        "loadingStatus": "DONE", 
+                        "type": "CDROM", 
+                        "id": 2812882153749334, 
+                        "size": {
+                            "unit": "KB", 
+                            "value": 672
+                        }
+                    }, 
+                    {
+                        "index": 0, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "vol", 
+                        "controllerId": 442059733967157376, 
+                        "boot": true, 
+                        "baseDiskImageName": "blank50.qcow2", 
+                        "controller": "virtio", 
+                        "baseDiskImageId": 76152860, 
+                        "loadingPercentage": 100, 
+                        "controllerIndex": 1, 
+                        "loadingStatus": "DONE", 
+                        "type": "DISK", 
+                        "id": 47477329667477, 
+                        "size": {
+                            "unit": "GB", 
+                            "value": 50
+                        }
+                    }
+                ], 
+                "numCpus": 4, 
+                "name": "compute1", 
+                "allowNested": true, 
+                "creationTime": 1563430551856, 
+                "usingNewNetwork": true, 
+                "baseVmId": 43354065, 
+                "bootOrder": [
+                    "CDROM", 
+                    "DISK"
+                ], 
+                "bootType": "BIOS", 
+                "os": "linux_manuel", 
+                "preferPhysicalHost": true
+            }, 
+            {
+                "privateCloudImage": false, 
+                "supportsCloudInit": true, 
+                "networkConnections": [
+                    {
+                        "device": {
+                            "generatedMac": "2c:c2:60:5d:a1:49", 
+                            "index": 0, 
+                            "mac": "2c:c2:60:1c:e5:19", 
+                            "deviceType": "virtio", 
+                            "useAutomaticMac": false
+                        }, 
+                        "ipConfig": {
+                            "needElasticIp": false, 
+                            "hasPublicIp": false, 
+                            "fqdn": "openstackipmiv1-ceesk135v10archive-zuokv0ha.srv.ravcloud.com", 
+                            "externalAccessState": "ALWAYS_PORT_FORWARDING", 
+                            "staticIpConfig": {
+                                "ip": "10.0.0.101", 
+                                "mask": "255.255.0.0", 
+                                "gateway": "10.0.0.254", 
+                                "dns": "10.0.0.254"
+                            }, 
+                            "id": 3744640263935305
+                        }, 
+                        "id": 1189197834528852, 
+                        "name": "eth0"
+                    }
+                ], 
+                "vmOrderGroupId": "5443434165655030", 
+                "applicationId": 3125679106700, 
+                "id": 5894753562062726, 
+                "configNetworkUsingCloudInit": false, 
+                "powerOffOnStopTimeOut": true, 
+                "useCdn": false, 
+                "rcu": 1.0, 
+                "memorySize": {
+                    "unit": "GB", 
+                    "value": 1
+                }, 
+                "platform": "default", 
+                "hardDrives": [
+                    {
+                        "index": 0, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "vol", 
+                        "controllerId": 9130698410740914176, 
+                        "boot": true, 
+                        "baseDiskImageName": "rhel7-base.qcow2", 
+                        "controller": "virtio", 
+                        "baseDiskImageId": 58392652, 
+                        "loadingPercentage": 100, 
+                        "controllerIndex": 0, 
+                        "loadingStatus": "DONE", 
+                        "type": "DISK", 
+                        "id": 3928369505255302, 
+                        "size": {
+                            "unit": "GB", 
+                            "value": 10
+                        }
+                    }
+                ], 
+                "requiresHvm": false, 
+                "busTopology": {}, 
+                "userData": "#!/bin/sh\ncat << EOF > /etc/ravellobmc/vms\n# VMs that the fake ipmi will manage\n# include in the list one VM per line along with the proxy IP the IPMI client (ipmitool) will use to manage it\n# Example:: VM_NAME,IP_ADDRESS\n# storage1,10.100.0.11\n# storage2,10.100.0.12\ncontrol0,10.0.0.10\ncompute0,10.0.0.20\ncompute1,10.0.0.21\nEOF\n\ncat << CONF > /etc/ravellobmc/ravellobmc.conf\n# ravellobmc command-line arguments\nASPECT=\"deployment\"\nAPI_USERNAME=\"gss-training-dev+ipmi@redhat.com\"\nCONF", 
+                "legacyMode": false, 
+                "configurationManagement": {
+                    "userData": "#!/bin/sh\ncat << EOF > /etc/ravellobmc/vms\n# VMs that the fake ipmi will manage\n# include in the list one VM per line along with the proxy IP the IPMI client (ipmitool) will use to manage it\n# Example:: VM_NAME,IP_ADDRESS\n# storage1,10.100.0.11\n# storage2,10.100.0.12\ncontrol0,10.0.0.10\ncompute0,10.0.0.20\ncompute1,10.0.0.21\nEOF\n\ncat << CONF > /etc/ravellobmc/ravellobmc.conf\n# ravellobmc command-line arguments\nASPECT=\"deployment\"\nAPI_USERNAME=\"gss-training-dev+ipmi@redhat.com\"\nCONF", 
+                    "configNetworkUsingCloudInit": false
+                }, 
+                "requiresKeypair": false, 
+                "loadingStatus": "DONE", 
+                "hostnames": [
+                    "ipmi.example.com"
+                ], 
+                "loadingPercentage": 100, 
+                "numCpus": 1, 
+                "name": "Openstack-IPMI-v1", 
+                "allowNested": false, 
+                "creationTime": 1563430551861, 
+                "usingNewNetwork": true, 
+                "baseVmId": 96217452, 
+                "bootOrder": [
+                    "CDROM", 
+                    "DISK"
+                ], 
+                "bootType": "BIOS", 
+                "os": "linux_manuel"
+            }, 
+            {
+                "cpuModel": "core2duo", 
+                "privateCloudImage": false, 
+                "supportsCloudInit": false, 
+                "networkConnections": [
+                    {
+                        "device": {
+                            "index": 0, 
+                            "useAutomaticMac": false, 
+                            "generatedMac": "2c:c2:60:1b:01:f9", 
+                            "mac": "2c:c2:60:1b:01:f9", 
+                            "pciSlot": 0, 
+                            "deviceType": "virtio"
+                        }, 
+                        "ipConfig": {
+                            "needElasticIp": false, 
+                            "hasPublicIp": false, 
+                            "fqdn": "control0-ceesk135v10archive-keecqcnn.srv.ravcloud.com", 
+                            "externalAccessState": "ALWAYS_PORT_FORWARDING", 
+                            "staticIpConfig": {
+                                "ip": "172.25.250.20", 
+                                "mask": "255.255.255.0", 
+                                "gateway": "172.25.250.254", 
+                                "dns": "172.25.250.254"
+                            }, 
+                            "id": 5795424454063049
+                        }, 
+                        "id": 1560644165167342, 
+                        "name": "eth0"
+                    }
+                ], 
+                "vmOrderGroupId": "3193835446859836", 
+                "applicationId": 3125679106700, 
+                "id": 4336738772821789, 
+                "powerOffOnStopTimeOut": true, 
+                "useCdn": false, 
+                "rcu": 8.0, 
+                "memorySize": {
+                    "unit": "GB", 
+                    "value": 32
+                }, 
+                "platform": "default", 
+                "requiresKeypair": false, 
+                "requiresHvm": false, 
+                "busTopology": {}, 
+                "legacyMode": false, 
+                "description": "This is an empty image with no operating system installed. To install an OS, please upload a bootable CD-ROM or DVD image.\n\nIMPORTANT NOTE: the hardware settings of this VM are configured to support as wide as possible range of operating systems. As such, it is using emulated network and disk devices. For best performance it is recommended to replace the network and disk devices with paravirtualized devices as supported by the guest OS (for example VirtIO).", 
+                "loadingStatus": "DONE", 
+                "hostnames": [
+                    "control0.example.com"
+                ], 
+                "loadingPercentage": 100, 
+                "hardDrives": [
+                    {
+                        "index": 1, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "vol1", 
+                        "controllerId": 3227689700120117248, 
+                        "boot": true, 
+                        "baseDiskImageName": "ipxe.iso", 
+                        "controller": "ide", 
+                        "baseDiskImageId": 62652550, 
+                        "loadingPercentage": 100, 
+                        "controllerIndex": 1, 
+                        "loadingStatus": "DONE", 
+                        "type": "CDROM", 
+                        "id": 7779591596324321, 
+                        "size": {
+                            "unit": "KB", 
+                            "value": 672
+                        }
+                    }, 
+                    {
+                        "index": 0, 
+                        "imageFetchMode": "LAZY", 
+                        "name": "vol", 
+                        "controllerId": 1832373583678047232, 
+                        "boot": true, 
+                        "baseDiskImageName": "blank50.qcow2", 
+                        "controller": "virtio", 
+                        "baseDiskImageId": 76152860, 
+                        "loadingPercentage": 100, 
+                        "controllerIndex": 2, 
+                        "loadingStatus": "DONE", 
+                        "type": "DISK", 
+                        "id": 4189584528819075, 
+                        "size": {
+                            "unit": "GB", 
+                            "value": 50
+                        }
+                    }
+                ], 
+                "numCpus": 8, 
+                "name": "control0", 
+                "allowNested": false, 
+                "creationTime": 1563430551858, 
+                "usingNewNetwork": true, 
+                "baseVmId": 43354065, 
+                "bootOrder": [
+                    "CDROM", 
+                    "DISK"
+                ], 
+                "bootType": "BIOS", 
+                "os": "linux_manuel", 
+                "preferPhysicalHost": true
+            }
+        ], 
+        "network": {
+            "switches": [
+                {
+                    "networkSegments": [
+                        {
+                            "id": 7907726482198177792, 
+                            "vlanId": 1
+                        }
+                    ], 
+                    "id": 1938802380017046528, 
+                    "ports": [
+                        {
+                            "index": 1, 
+                            "networkSegmentReferences": [
+                                {
+                                    "anyNetworkSegment": false, 
+                                    "id": 361040431979558016, 
+                                    "networkSegmentId": 7907726482198177792, 
+                                    "egressPolicy": "UNTAGGED"
+                                }
+                            ], 
+                            "deviceType": "SERVICES", 
+                            "id": 5222521272552906752, 
+                            "deviceId": 1423026108392270848
+                        }, 
+                        {
+                            "index": 3, 
+                            "networkSegmentReferences": [
+                                {
+                                    "anyNetworkSegment": false, 
+                                    "id": 8478660028173022208, 
+                                    "networkSegmentId": 7907726482198177792, 
+                                    "egressPolicy": "UNTAGGED"
+                                }
+                            ], 
+                            "deviceType": "VM", 
+                            "id": 791892194842132608, 
+                            "deviceId": 2663544648622653
+                        }, 
+                        {
+                            "index": 2, 
+                            "networkSegmentReferences": [
+                                {
+                                    "anyNetworkSegment": false, 
+                                    "id": 8508044646729105408, 
+                                    "networkSegmentId": 7907726482198177792, 
+                                    "egressPolicy": "UNTAGGED"
+                                }
+                            ], 
+                            "deviceType": "VM", 
+                            "id": 1043567594870395008, 
+                            "deviceId": 1189197834528852
+                        }
+                    ]
+                }, 
+                {
+                    "networkSegments": [
+                        {
+                            "id": 1355879765233485824, 
+                            "vlanId": 1
+                        }
+                    ], 
+                    "id": 1079437816443492480, 
+                    "ports": [
+                        {
+                            "index": 1, 
+                            "networkSegmentReferences": [
+                                {
+                                    "anyNetworkSegment": false, 
+                                    "id": 3719957364907813888, 
+                                    "networkSegmentId": 1355879765233485824, 
+                                    "egressPolicy": "UNTAGGED"
+                                }
+                            ], 
+                            "deviceType": "SERVICES", 
+                            "id": 1757593656969793536, 
+                            "deviceId": 5233541697470651392
+                        }, 
+                        {
+                            "index": 2, 
+                            "networkSegmentReferences": [
+                                {
+                                    "anyNetworkSegment": false, 
+                                    "id": 1249375834943370240, 
+                                    "networkSegmentId": 1355879765233485824, 
+                                    "egressPolicy": "UNTAGGED"
+                                }
+                            ], 
+                            "deviceType": "VM", 
+                            "id": 7952976842331701248, 
+                            "deviceId": 1560644165167342
+                        }, 
+                        {
+                            "index": 5, 
+                            "networkSegmentReferences": [
+                                {
+                                    "anyNetworkSegment": false, 
+                                    "id": 5388467940073976832, 
+                                    "networkSegmentId": 1355879765233485824, 
+                                    "egressPolicy": "UNTAGGED"
+                                }
+                            ], 
+                            "deviceType": "VM", 
+                            "id": 5144143750505054208, 
+                            "deviceId": 2386085610855735
+                        }, 
+                        {
+                            "index": 6, 
+                            "networkSegmentReferences": [
+                                {
+                                    "anyNetworkSegment": false, 
+                                    "id": 7679183156878963712, 
+                                    "networkSegmentId": 1355879765233485824, 
+                                    "egressPolicy": "UNTAGGED"
+                                }
+                            ], 
+                            "deviceType": "VM", 
+                            "id": 4293482425269539840, 
+                            "deviceId": 4468413594315298
+                        }, 
+                        {
+                            "index": 7, 
+                            "networkSegmentReferences": [
+                                {
+                                    "anyNetworkSegment": false, 
+                                    "id": 5319359039712210944, 
+                                    "networkSegmentId": 1355879765233485824, 
+                                    "egressPolicy": "UNTAGGED"
+                                }
+                            ], 
+                            "deviceType": "VM", 
+                            "id": 4756986622107669504, 
+                            "deviceId": 6555154177521503
+                        }
+                    ]
+                }
+            ], 
+            "subnets": [
+                {
+                    "networkSegmentId": 7907726482198177792, 
+                    "ipConfigurationIds": [
+                        4242647626740922, 
+                        3744640263935305, 
+                        8215442678443196416
+                    ], 
+                    "mask": "255.255.0.0", 
+                    "ipVersion": "IPV4", 
+                    "net": "10.0.0.0", 
+                    "id": 5959478858232190976
+                }, 
+                {
+                    "networkSegmentId": 1355879765233485824, 
+                    "ipConfigurationIds": [
+                        8553721979631767, 
+                        8519535160007881728, 
+                        5795424454063049, 
+                        7001186422965238, 
+                        3183184438393517
+                    ], 
+                    "mask": "255.255.255.0", 
+                    "ipVersion": "IPV4", 
+                    "net": "172.25.250.0", 
+                    "id": 8570868392386455552
+                }
+            ], 
+            "services": {
+                "routers": [
+                    {
+                        "ipConfigurationIds": [
+                            8215442678443196416, 
+                            8519535160007881728
+                        ], 
+                        "id": 168025596075026528, 
+                        "wan": true
+                    }
+                ], 
+                "externalGateway": {
+                    "natRules": [
+                        {
+                            "serviceId": 1732877888570722
+                        }
+                    ], 
+                    "securityRules": [
+                        {
+                            "accessPolicy": "DENY", 
+                            "anySource": true, 
+                            "id": 8122831312695057408
+                        }
+                    ], 
+                    "customRulesEnabled": false
+                }, 
+                "dhcpServers": [
+                    {
+                        "excludedIpEntries": [
+                            {
+                                "ip": "10.0.255.255", 
+                                "id": 3525201556001135616
+                            }, 
+                            {
+                                "ip": "10.0.0.0", 
+                                "id": 2264407633538770944
+                            }, 
+                            {
+                                "ip": "10.0.0.254", 
+                                "id": 1207659378839240704
+                            }, 
+                            {
+                                "ip": "10.0.0.1", 
+                                "id": 5368351008613623808
+                            }, 
+                            {
+                                "ip": "10.0.0.101", 
+                                "id": 6422565234540722176
+                            }
+                        ], 
+                        "poolStart": "10.0.0.0", 
+                        "ipConfigurationId": 8215442678443196416, 
+                        "mask": "255.255.0.0", 
+                        "gatewayIpConfigurationId": 8215442678443196416, 
+                        "poolEnd": "10.0.255.255", 
+                        "id": 4389321201355118592, 
+                        "dnsIpConfigurationId": 8215442678443196416
+                    }
+                ], 
+                "dnsServers": [
+                    {
+                        "ipConfigurationIds": [
+                            8215442678443196416, 
+                            8519535160007881728
+                        ], 
+                        "id": 2452415826151901184, 
+                        "entries": [
+                            {
+                                "ipConfigurationId": 4242647626740922, 
+                                "type": "A", 
+                                "id": 8680081036209012736, 
+                                "index": 4, 
+                                "name": "director.example.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 4242647626740922, 
+                                "type": "PTR", 
+                                "id": 544042342704499840, 
+                                "index": 5, 
+                                "name": "director.example.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 5795424454063049, 
+                                "type": "A", 
+                                "id": 3019237489915129856, 
+                                "index": 11, 
+                                "name": "control0.example.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 5795424454063049, 
+                                "type": "PTR", 
+                                "id": 3307262464229755904, 
+                                "index": 12, 
+                                "name": "control0.example.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 8553721979631767, 
+                                "type": "PTR", 
+                                "id": 2944809142912285696, 
+                                "index": 14, 
+                                "name": "director.example.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 3183184438393517, 
+                                "type": "A", 
+                                "id": 7694174239649173504, 
+                                "index": 28, 
+                                "name": "compute0.example.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 3183184438393517, 
+                                "type": "PTR", 
+                                "id": 7417429418440162304, 
+                                "index": 29, 
+                                "name": "compute0.example.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 7001186422965238, 
+                                "type": "A", 
+                                "id": 898480197431342208, 
+                                "index": 33, 
+                                "name": "compute1.example.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 7001186422965238, 
+                                "type": "PTR", 
+                                "id": 3009579527056347136, 
+                                "index": 34, 
+                                "name": "compute1.example.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 7001186422965238, 
+                                "type": "A", 
+                                "id": 7780105029630329856, 
+                                "index": 78, 
+                                "name": "compute1-osptrainingtemplat-jb3fxslp.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 3183184438393517, 
+                                "type": "A", 
+                                "id": 4825240528723753984, 
+                                "index": 87, 
+                                "name": "compute0-osptrainingtemplat-pvi6bvhy.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 5795424454063049, 
+                                "type": "A", 
+                                "id": 1992172091323083776, 
+                                "index": 93, 
+                                "name": "control0-osptrainingtemplat-x4l3qgi1.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 4242647626740922, 
+                                "type": "A", 
+                                "id": 1991744731379785728, 
+                                "index": 96, 
+                                "name": "director-osptrainingtemplat-cckmlpb6.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 8553721979631767, 
+                                "type": "A", 
+                                "id": 1977509739449864192, 
+                                "index": 99, 
+                                "name": "director-osptrainingtemplat-reva4eyl.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 3744640263935305, 
+                                "type": "A", 
+                                "id": 9187526713974424576, 
+                                "index": 101, 
+                                "name": "ipmi.example.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 3744640263935305, 
+                                "type": "PTR", 
+                                "id": 4305396591022912512, 
+                                "index": 102, 
+                                "name": "ipmi.example.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 7001186422965238, 
+                                "type": "A", 
+                                "id": 110122264240275552, 
+                                "index": 103, 
+                                "name": "compute1-ceesk135osp13bp0i-n5mrgkdc.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 8553721979631767, 
+                                "type": "A", 
+                                "id": 7127212582511526912, 
+                                "index": 106, 
+                                "name": "director-ceesk135osp13bp0i-rpkz3yav.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 4242647626740922, 
+                                "type": "A", 
+                                "id": 5226142867992938496, 
+                                "index": 108, 
+                                "name": "director-ceesk135osp13bp0i-o6wvhtbu.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 3183184438393517, 
+                                "type": "A", 
+                                "id": 6253587039515763712, 
+                                "index": 111, 
+                                "name": "compute0-ceesk135osp13bp0i-6ypfvwsy.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 3744640263935305, 
+                                "type": "A", 
+                                "id": 630976927360346240, 
+                                "index": 114, 
+                                "name": "openstackipmiv1-ceesk135osp13bp0i-zvx0xf5r.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 5795424454063049, 
+                                "type": "A", 
+                                "id": 4237664587529884672, 
+                                "index": 117, 
+                                "name": "control0-ceesk135osp13bp0i-0h5vxnpk.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 3744640263935305, 
+                                "type": "A", 
+                                "id": 6803231323725968384, 
+                                "index": 118, 
+                                "name": "openstackipmiv1-ceesk135osp13bp4ne-z7g7cuwy.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 7001186422965238, 
+                                "type": "A", 
+                                "id": 4175356165336343552, 
+                                "index": 121, 
+                                "name": "compute1-ceesk135osp13bp4ne-hgaxet8p.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 3183184438393517, 
+                                "type": "A", 
+                                "id": 6701953232615197696, 
+                                "index": 124, 
+                                "name": "compute0-ceesk135osp13bp4ne-lij7phoz.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 8553721979631767, 
+                                "type": "A", 
+                                "id": 3518075214802178048, 
+                                "index": 127, 
+                                "name": "director-ceesk135osp13bp4ne-rlmk21wp.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 4242647626740922, 
+                                "type": "A", 
+                                "id": 2558191556919324672, 
+                                "index": 129, 
+                                "name": "director-ceesk135osp13bp4ne-b8xlgler.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 5795424454063049, 
+                                "type": "A", 
+                                "id": 2816064536214176768, 
+                                "index": 132, 
+                                "name": "control0-ceesk135osp13bp4ne-qeqntugn.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 3744640263935305, 
+                                "type": "A", 
+                                "id": 8397200727231541248, 
+                                "index": 133, 
+                                "name": "openstackipmiv1-ceesk135v10archive-zuokv0ha.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 5795424454063049, 
+                                "type": "A", 
+                                "id": 7514587932384988160, 
+                                "index": 136, 
+                                "name": "control0-ceesk135v10archive-keecqcnn.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 7001186422965238, 
+                                "type": "A", 
+                                "id": 7948167921236127744, 
+                                "index": 139, 
+                                "name": "compute1-ceesk135v10archive-r9nxegym.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 8553721979631767, 
+                                "type": "A", 
+                                "id": 5377232832425961472, 
+                                "index": 142, 
+                                "name": "director-ceesk135v10archive-5ke6naeo.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 4242647626740922, 
+                                "type": "A", 
+                                "id": 9086407567263928320, 
+                                "index": 144, 
+                                "name": "director-ceesk135v10archive-rccofqbb.srv.ravcloud.com"
+                            }, 
+                            {
+                                "ipConfigurationId": 3183184438393517, 
+                                "type": "A", 
+                                "id": 5638891428216441856, 
+                                "index": 147, 
+                                "name": "compute0-ceesk135v10archive-wvisf16e.srv.ravcloud.com"
+                            }
+                        ]
+                    }
+                ], 
+                "networkInterfaces": [
+                    {
+                        "id": 1423026108392270848, 
+                        "ipConfigurations": [
+                            {
+                                "staticIpConfig": {
+                                    "ip": "10.0.0.254", 
+                                    "mask": "255.255.0.0"
+                                }, 
+                                "id": 8215442678443196416
+                            }
+                        ]
+                    }, 
+                    {
+                        "id": 5233541697470651392, 
+                        "ipConfigurations": [
+                            {
+                                "staticIpConfig": {
+                                    "ip": "172.25.250.254", 
+                                    "mask": "255.255.255.0"
+                                }, 
+                                "id": 8519535160007881728
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }, 
+    "costBucket": {
+        "deleted": false, 
+        "creationTime": 1456038573119, 
+        "id": 49381386, 
+        "name": "Organization"
+    }, 
+    "owner": "Ashihs Shah", 
+    "designDiffersFromDeployment": false, 
+    "id": 3125679106700, 
+    "name": "cee-sk-135-v1.0-ARCHIVE"
+}

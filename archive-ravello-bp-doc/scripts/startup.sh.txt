@@ -1,0 +1,16 @@
+#!/bin/bash
+# Bug report to: ashishks@redhat.com
+
+systemctl restart network
+sleep 5
+/usr/local/bin/nfs-mount.sh
+if [ $? -eq 0 ]
+then
+	echo -e "nfs share mounted successfully" >> /etc/motd
+	/usr/local/bin/get-disk-image.sh -d /mnt/
+else
+	echo -e "Mounting of nfs share failed" >> /etc/motd
+	exit 1
+fi
+
+

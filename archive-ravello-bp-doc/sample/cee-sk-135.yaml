@@ -1,0 +1,220 @@
+heat_template_version: 2016-10-14
+### Heat template to create lab environment for cee-sk-135. 
+# Problem: #pcs IP resource is not reachable. due to which overcloud is not accessiable
+# Resolution: Allow the network range as additional addresses.
+# Example: neutron port-update 91f5d992-c141-4e1e-a95c-09fd4f993277 --allowed_address_pairs list=true type=dict ip_address=172.25.250.0/24
+# execute above command on host
+# Reference: http://superuser.openstack.org/articles/managing-port-level-security-openstack/
+# 
+# Problem: Heat template parameter allowed_address_pairs is not taking effect.
+# Settings are reflected in port-show output but not able to ping additional ip address.
+#
+# Solution: 
+#      allowed_address_pairs: [{"ip_address": "172.25.250.0/24"}]
+# subnet range '/24' was missing in the configuration.
+#
+parameters:
+
+   image-compute0:
+      type: string
+      label: Image ID
+      description: Image for compute0
+      default: cee-sk-135-compute1
+
+   image-compute1:
+      type: string
+      label: Image ID
+      description: Image for compute1
+      default: cee-sk-135-compute0
+
+   image-control0:
+      type: string
+      label: Image ID
+      description: Image for control0
+      default: cee-sk-135-control0
+
+   image-director:
+      type: string
+      label: Image ID
+      description: Image for control0
+      default: cee-sk-135-director
+
+resources:
+
+  flavor-compute0:
+   type: OS::Nova::Flavor
+   properties:
+     name: flavor-compute0
+     ram: 8192
+     vcpus: 4
+     disk: 50
+
+  init-compute0:
+   type: OS::Heat::CloudConfig
+   properties:
+     cloud_config:
+        mac_address: 2c:c2:60:63:25:56
+
+  instance-compute0:
+   type: OS::Nova::Server
+   properties:
+     name: compute0.example.com
+     image: { get_param: image-compute0 }
+     flavor: { get_resource: flavor-compute0 }
+     networks:
+        - port: { get_resource: port-net2-compute0 }
+
+  port-net2-compute0:
+   type: OS::Neutron::Port
+   properties:
+     network: { get_resource: net2 }
+     fixed_ips: [{"subnet": { get_resource: subnet2 }, "ip_address": "172.25.250.13"}]
+     allowed_address_pairs: [{"ip_address": "172.25.250.0/24"}]
+     mac_address: 2c:c2:60:63:25:56
+
+  flavor-compute1:
+   type: OS::Nova::Flavor
+   properties:
+     name: flavor-compute1
+     ram: 8192
+     vcpus: 4
+     disk: 50
+
+  instance-compute1:
+   type: OS::Nova::Server
+   properties:
+     name: compute1.example.com
+     image: { get_param: image-compute1 }
+     flavor: { get_resource: flavor-compute1 }
+     networks:
+        - port: { get_resource: port-net2-compute1 }
+
+
+  port-net2-compute1:
+   type: OS::Neutron::Port
+   properties:
+     network: { get_resource: net2 }
+     fixed_ips: [{"subnet": { get_resource: subnet2}, "ip_address": "172.25.250.18"}]
+     allowed_address_pairs: [{"ip_address": "172.25.250.0/24"}]
+     mac_address: 2c:c2:60:75:3d:91
+
+
+  flavor-control0:
+   type: OS::Nova::Flavor
+   properties:
+     name: flavor-control0
+     ram: 32768
+     vcpus: 8
+     disk: 50
+
+  instance-control0:
+   type: OS::Nova::Server
+   properties:
+     name: control0.example.com
+     image: { get_param: image-control0 }
+     flavor: { get_resource: flavor-control0 }
+     networks:
+        - port: { get_resource: port-net2-control0 }
+
+  port-net2-control0:
+   type: OS::Neutron::Port
+   properties:
+     network: { get_resource: net2 }
+     allowed_address_pairs: [{"ip_address": "172.25.250.0/24"}]
+     fixed_ips: [{"subnet": { get_resource: subnet2 }, "ip_address": "172.25.250.20"}]
+     mac_address: 2c:c2:60:1b:01:f9
+
+  flavor-director:
+   type: OS::Nova::Flavor
+   properties:
+     name: flavor-director
+     ram: 16384
+     vcpus: 8
+     disk: 60
+
+  instance-director:
+   type: OS::Nova::Server
+   properties:
+     name: director.example.com
+     image: { get_param: image-director }
+     flavor: { get_resource: flavor-director }
+     networks:
+        - port: { get_resource: port-net1-director }
+        - port: { get_resource: port-net2-director }
+
+  port-net1-director:
+   type: OS::Neutron::Port
+   properties:
+     network: { get_resource: net1 }
+     fixed_ips: [{"subnet": { get_resource: subnet1 }, "ip_address": "10.0.0.1"}]
+     mac_address: 2c:c2:60:24:0e:20
+
+
+  port-net2-director:
+   type: OS::Neutron::Port
+   properties:
+     network: { get_resource: net2 }
+     fixed_ips: [{"subnet": { get_resource: subnet2 }, "ip_address": "172.25.250.1"}]
+     allowed_address_pairs: [{"ip_address": "172.25.250.0/24"}]
+     mac_address: 2c:c2:60:31:b5:87
+
+
+  net1:
+   type: OS::Neutron::Net
+   properties:
+     name: net1
+
+  subnet1:
+   type: OS::Neutron::Subnet
+   properties:
+     name: subnet1
+     network_id: { get_resource: net1 }
+     cidr: "10.0.0.0/16"
+     dns_nameservers: [ "8.8.8.8" ]
+     ip_version: 4
+     enable_dhcp: true
+
+  net2:
+   type: OS::Neutron::Net
+   properties:
+     name: net2
+
+  subnet2:
+   type: OS::Neutron::Subnet
+   properties:
+     name: subnet2
+     network_id: { get_resource: net2 }
+     cidr: "172.25.250.0/24"
+     dns_nameservers: [ "8.8.8.8" ]
+     ip_version: 4
+     enable_dhcp: true
+
+  router1:
+   type: OS::Neutron::Router
+   properties:
+     name: router1
+
+  port-router1-net1:
+   type: OS::Neutron::Port
+   properties:
+     network: { get_resource: net1 }
+     fixed_ips: [{"subnet": { get_resource: subnet1 }, "ip_address": "10.0.0.254"}]
+
+  port-router1-net2:
+   type: OS::Neutron::Port
+   properties:
+     network: { get_resource: net2 }
+     fixed_ips: [{"subnet": { get_resource: subnet2 }, "ip_address": "172.25.250.254"}]
+
+  net1-router1-interface:
+   type: OS::Neutron::RouterInterface
+   properties:
+     router: { get_resource: router1 }
+     port: { get_resource: port-router1-net1 }
+
+  net2-router-interface:
+   type: OS::Neutron::RouterInterface
+   properties:
+     router_id: { get_resource: router1 }
+     port: { get_resource: port-router1-net2 }
+

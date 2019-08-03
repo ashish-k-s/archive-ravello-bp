@@ -1,0 +1,16 @@
+#!/bin/bash
+# Bug report to: ashishks@redhat.com
+
+showmount -e 10.0.0.5 > /dev/null 2>&1
+if [ $? -ne 0 ]
+then
+	sleep 120
+fi
+mount 10.0.0.5:/data /mnt
+if [ $? -ne 0 ]
+then
+	echo -e "Mounting of nfs share failed" >> /etc/motd
+	exit 1
+fi
+exit 0
+
