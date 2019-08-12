@@ -1,5 +1,6 @@
 # archive-ravello-bp
-Tool to archive disk images and metadata of your blueprint on Ravello cloud and store it locally
+Tool to archive disk images and metadata of your blueprint on Ravello cloud and store it locally.
+Local backup of Ravello blueprint is useful for migration from Ravello to other cloud environment.
 
 ## Objective
 
