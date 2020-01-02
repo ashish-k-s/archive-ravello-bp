@@ -1,5 +1,4 @@
 #!/bin/bash
-# Bug report to: ashishks@redhat.com
 
 eval `grep APPNAME /root/app_data`
 eval `grep VMNAME /root/app_data`
@@ -41,15 +40,15 @@ then
 fi
 
 echo -e "Executing $SCRIPTNAME..." >> /etc/motd
-echo -e "Deatil of attached disks:" > $LOGFILE 2>&1
-lsblk | grep disk >> $LOGFILE 2>&1
+echo -e "Deatil of attached disks:" > "$LOGFILE" 2>&1
+lsblk | grep disk >> "$LOGFILE" 2>&1
 if [ $? -ne 0 ]
 then
-    echo -e "Not found \nUnknown error occurred, check $LOGFILE" >> /etc/motd
+    echo -e "Not found \nUnknown error occurred, check "$LOGFILE"" >> /etc/motd
     exit 1
 fi
 
-echo -e "Archiving hard drives" >> $LOGFILE 2>&1
+echo -e "Archiving hard drives" >> "$LOGFILE" 2>&1
 ## Capture hard disk images in qcow2 form
 for disk in `lsblk -d | grep disk | awk '{print $1}'`
 do
@@ -57,24 +56,24 @@ do
     IMAGEFILE=$DIR/$APPNAME-$VMNAME-$disk.qcow2
     if [ -b $DISKFILE ]
         then
-                date >> $LOGFILE 2>&1
-                ls -l $DISKFILE >> $LOGFILE 2>&1
-                qemu-img convert -p -c -f raw -O qcow2 $DISKFILE  $IMAGEFILE >> $LOGFILE 2>&1
+                date >> "$LOGFILE" 2>&1
+                ls -l $DISKFILE >> "$LOGFILE" 2>&1
+                qemu-img convert -p -c -f raw -O qcow2 $DISKFILE  "$IMAGEFILE" >> "$LOGFILE" 2>&1
                 if [ $? -ne 0 ]
                 then
-                    echo -e "Error converting $disk from $DISKFILE to $IMAGEFILE" | tee -a $LOGFILE
+                    echo -e "Error converting $disk from $DISKFILE to "$IMAGEFILE"" | tee -a "$LOGFILE"
                 fi
         else
-                echo -e "$DISKFILE does not exist" | tee -a $LOGFILE
+                echo -e "$DISKFILE does not exist" | tee -a "$LOGFILE"
         fi
-	echo -e "==============================" | tee -a $LOGFILE
+	echo -e "==============================" | tee -a "$LOGFILE"
 done
 
 ## Capture iso images
-echo -e "Archiving iso images" >> $LOGFILE 2>&1
+echo -e "Archiving iso images" >> "$LOGFILE" 2>&1
 ## Skip the custom iso used for booting VM
 SKIPISO=$(lsblk | grep rom | awk '$7 == "/run/initramfs/live" {print $1}')
-echo -e "$SKIPISO belons to custom boot image, skipping it..." >> $LOGFILE
+echo -e "$SKIPISO belons to custom boot image, skipping it..." >> "$LOGFILE"
 for disk in `lsblk -d | grep rom | grep -v $SKIPISO | awk '{print $1}'`
 do
     DISKFILE=/dev/$disk
@@ -82,18 +81,20 @@ do
     if [ -b $DISKFILE ]
         then
                 date >> $LOGFILE 2>&1
-                ls -l $DISKFILE >> $LOGFILE 2>&1
-                dd if=$DISKFILE  of=$IMAGEFILE >> $LOGFILE 2>&1
+                ls -l $DISKFILE >> "$LOGFILE" 2>&1
+                dd if=$DISKFILE  of="$IMAGEFILE" >> "$LOGFILE" 2>&1
                 if [ $? -ne 0 ]
                 then
-                    echo -e "Error converting $disk from $DISKFILE to $IMAGEFILE" | tee -a $LOGFILE
+                    echo -e "Error converting $disk from $DISKFILE to "$IMAGEFILE"" | tee -a "$LOGFILE"
                 fi
         else
-                echo -e "$DISKFILE does not exist" | tee -a $LOGFILE
+                echo -e "$DISKFILE does not exist" | tee -a "$LOGFILE"
         fi
-        echo -e "==============================" | tee -a $LOGFILE
+        echo -e "==============================" | tee -a "$LOGFILE"
 done
 
 echo -e "$SCRIPTNAME exited successfully" >> /etc/motd
 touch $DIR/$APPNAME-$VMNAME-$SCRIPTNAME.success
 init 0
+
+
